@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivek Singh â€” Environmental Researcher & GIS Specialist</title>
+<title>Vivek Singh â€“ Environmental Researcher & GIS Specialist</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,6 +17,7 @@
   body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow-x:hidden; }
   body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; opacity:0.4; }
 
+  /* â”€â”€ NAV â”€â”€ */
   nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid transparent; transition:all 0.3s; }
   nav.scrolled { background:rgba(10,15,10,0.9); border-color:var(--border); backdrop-filter:blur(16px); }
   .nav-logo { font-family:var(--mono); font-size:0.85rem; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; }
@@ -24,6 +25,7 @@
   .nav-links a { font-family:var(--mono); font-size:0.75rem; color:var(--text-muted); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
   .nav-links a:hover { color:var(--accent); }
 
+  /* â”€â”€ HERO â”€â”€ */
   .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; position:relative; overflow:hidden; }
   .hero-left { display:flex; flex-direction:column; justify-content:center; padding:8rem 4rem 6rem 6rem; position:relative; z-index:2; }
   .hero-tag { font-family:var(--mono); font-size:0.75rem; color:var(--accent); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:2rem; display:flex; align-items:center; gap:0.75rem; }
@@ -39,25 +41,33 @@
   .btn-outline { background:transparent; color:var(--text-muted); border:1px solid var(--border); }
   .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
 
+  /* â”€â”€ HERO RIGHT / PHOTO â”€â”€ */
   .hero-right { position:relative; display:flex; align-items:center; justify-content:center; }
   .hero-visual { position:absolute; inset:0; background:radial-gradient(ellipse at 60% 40%, rgba(76,175,110,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(42,107,66,0.08) 0%, transparent 50%); }
   .grid-lines { position:absolute; inset:0; opacity:0.15; background-image:linear-gradient(rgba(76,175,110,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(76,175,110,0.3) 1px, transparent 1px); background-size:60px 60px; animation:gridMove 20s linear infinite; }
   @keyframes gridMove { 0%{transform:translate(0,0);} 100%{transform:translate(60px,60px);} }
-
   .hero-photo-wrap { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
-  .hero-photo { width:200px; height:200px; border-radius:50%; object-fit:cover; border:3px solid var(--accent3); box-shadow:0 0 50px rgba(76,175,110,0.25); }
-  .hero-photo-placeholder { width:200px; height:200px; border-radius:50%; border:3px dashed var(--accent3); background:var(--surface); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:0.65rem; color:var(--text-faint); text-align:center; padding:1.5rem; }
+
+  /* Photo styles */
+  .hero-photo { width:220px; height:220px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid var(--accent3); box-shadow:0 0 50px rgba(76,175,110,0.25), 0 0 0 8px rgba(76,175,110,0.06); display:block; }
+
+  /* Fallback avatar shown when image fails to load */
+  .hero-photo-fallback { width:220px; height:220px; border-radius:50%; border:3px solid var(--accent3); background:var(--surface); display:none; align-items:center; justify-content:center; flex-direction:column; box-shadow:0 0 50px rgba(76,175,110,0.25); }
+  .hero-photo-fallback .initials { font-family:var(--serif); font-size:4rem; color:var(--accent); line-height:1; }
+  .hero-photo-fallback .fallback-note { font-family:var(--mono); font-size:0.6rem; color:var(--text-faint); text-align:center; margin-top:0.75rem; padding:0 1.5rem; line-height:1.5; }
 
   .hero-stat-card { position:absolute; background:var(--surface); border:1px solid var(--border); padding:1.2rem 1.5rem; border-radius:4px; }
   .stat-card-1 { top:20%; right:5%; } .stat-card-2 { bottom:22%; right:3%; } .stat-card-3 { top:62%; left:2%; }
   .stat-num { font-family:var(--serif); font-size:2.2rem; color:var(--accent); line-height:1; }
   .stat-label { font-family:var(--mono); font-size:0.62rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem; }
 
+  /* â”€â”€ SECTIONS â”€â”€ */
   section { padding:7rem 6rem; }
   .section-label { font-family:var(--mono); font-size:0.7rem; color:var(--accent); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem; }
   .section-label::after { content:''; flex:1; max-width:3rem; height:1px; background:var(--accent3); }
   h2 { font-family:var(--serif); font-size:clamp(2.2rem,3.5vw,3.2rem); line-height:1.1; margin-bottom:1.5rem; }
 
+  /* â”€â”€ ABOUT â”€â”€ */
   #about { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
   .about-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:6rem; align-items:start; }
   .about-text { font-size:1.05rem; color:var(--text-muted); line-height:1.85; }
@@ -70,6 +80,7 @@
   .detail-val a { color:var(--accent2); text-decoration:none; }
   .detail-val a:hover { color:var(--accent); }
 
+  /* â”€â”€ SKILLS â”€â”€ */
   #skills { background:var(--bg); }
   .skills-wrapper { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
   .skill-card { background:var(--surface); border:1px solid var(--border); padding:2rem; border-radius:4px; transition:border-color 0.2s, transform 0.2s; }
@@ -80,7 +91,7 @@
   .tag { font-family:var(--mono); font-size:0.65rem; color:var(--text-faint); border:1px solid var(--border); padding:0.25rem 0.6rem; border-radius:2px; letter-spacing:0.05em; transition:all 0.2s; }
   .skill-card:hover .tag { border-color:var(--accent3); color:var(--accent2); }
 
-  #experience { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  /* â”€â”€ TIMELINE (shared by Experience & Education) â”€â”€ */
   .timeline { position:relative; margin-top:3rem; padding-left:2rem; }
   .timeline::before { content:''; position:absolute; left:0; top:0.5rem; bottom:0; width:1px; background:linear-gradient(to bottom, var(--accent), var(--accent3), transparent); }
   .timeline-item { position:relative; margin-bottom:3.5rem; padding-left:2.5rem; }
@@ -90,7 +101,21 @@
   .timeline-org { font-family:var(--mono); font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem; }
   .timeline-desc { font-size:0.93rem; color:var(--text-muted); line-height:1.7; max-width:640px; }
 
-  #publications { background:var(--bg); }
+  /* Education dot is accent2 colour to visually distinguish */
+  #education .timeline-dot { background:var(--accent2); box-shadow:0 0 12px rgba(141,212,160,0.5); }
+  #education .timeline::before { background:linear-gradient(to bottom, var(--accent2), var(--accent3), transparent); }
+  #education .timeline-date { color:var(--accent2); }
+
+  /* â”€â”€ EXPERIENCE â”€â”€ */
+  #experience { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+  /* â”€â”€ EDUCATION â”€â”€ */
+  #education { background:var(--bg); }
+  .edu-badge { display:inline-block; font-family:var(--mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; background:rgba(141,212,160,0.1); border:1px solid var(--accent3); color:var(--accent2); padding:0.2rem 0.7rem; border-radius:2px; margin-bottom:0.7rem; }
+  .edu-grade { font-family:var(--mono); font-size:0.78rem; color:var(--accent); margin-top:0.4rem; }
+
+  /* â”€â”€ PUBLICATIONS â”€â”€ */
+  #publications { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
   .pub-tabs { display:flex; gap:0.5rem; margin-bottom:2rem; margin-top:1.5rem; }
   .pub-tab { font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.5rem 1.2rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); cursor:pointer; border-radius:2px; transition:all 0.2s; }
   .pub-tab.active, .pub-tab:hover { background:var(--accent3); border-color:var(--accent3); color:var(--text); }
@@ -106,6 +131,7 @@
   .pub-doi a { color:var(--accent3); text-decoration:none; transition:color 0.2s; }
   .pub-doi a:hover { color:var(--accent); }
 
+  /* â”€â”€ TRAININGS â”€â”€ */
   #trainings { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
   .training-list { margin-top:2.5rem; display:flex; flex-direction:column; gap:1rem; }
   .training-item { display:grid; grid-template-columns:180px 1fr; gap:1.5rem; padding:1.2rem 1.5rem; background:var(--surface); border:1px solid var(--border); border-radius:2px; align-items:start; }
@@ -113,18 +139,22 @@
   .training-title { font-size:0.93rem; color:var(--text); line-height:1.6; }
   .training-title span { color:var(--text-muted); font-size:0.85rem; }
 
+  /* â”€â”€ CONTACT â”€â”€ */
   #contact { background:var(--bg); text-align:center; }
   .contact-sub { color:var(--text-muted); margin-bottom:3rem; font-size:1rem; }
   .contact-links { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
   .contact-link { display:flex; align-items:center; gap:0.6rem; font-family:var(--mono); font-size:0.8rem; color:var(--text-muted); text-decoration:none; border:1px solid var(--border); padding:0.8rem 1.5rem; border-radius:2px; letter-spacing:0.06em; transition:all 0.2s; }
   .contact-link:hover { border-color:var(--accent); color:var(--accent); }
 
+  /* â”€â”€ FOOTER â”€â”€ */
   footer { padding:2rem 6rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
   footer span { font-family:var(--mono); font-size:0.7rem; color:var(--text-faint); letter-spacing:0.08em; }
 
+  /* â”€â”€ ANIMATIONS â”€â”€ */
   .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity:1; transform:translateY(0); }
 
+  /* â”€â”€ RESPONSIVE â”€â”€ */
   @media(max-width:900px){
     nav{padding:1.2rem 1.5rem;} .nav-links{display:none;}
     section{padding:5rem 1.5rem;} .hero{grid-template-columns:1fr;}
@@ -136,18 +166,21 @@
 </head>
 <body>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAV â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <nav id="navbar">
   <div class="nav-logo">VS / Portfolio</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#trainings">Trainings</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Environmental Researcher</div>
@@ -164,18 +197,26 @@
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
   </div>
+
   <div class="hero-right">
     <div class="hero-visual"></div>
     <div class="grid-lines"></div>
     <div class="hero-photo-wrap">
       <!--
-        TO ADD YOUR PHOTO:
-        1. Copy DSC_6947.JPG into the same folder as this index.html
-        2. Delete the <div class="hero-photo-placeholder"> block below
-        3. Uncomment the <img> line below
+        Place DSC_6947.JPG in the same folder as this index.html.
+        The image will show automatically. If the file is missing,
+        an initials avatar is displayed as fallback.
       -->
-      <!-- <img src="DSC_6947.JPG" alt="Vivek Singh" class="hero-photo"> -->
-      <div class="hero-photo-placeholder">Copy DSC_6947.JPG here &amp; uncomment the img tag</div>
+      <img
+        src="DSC_6947.JPG"
+        alt="Vivek Singh"
+        class="hero-photo"
+        onerror="this.style.display='none'; document.querySelector('.hero-photo-fallback').style.display='flex';"
+      >
+      <div class="hero-photo-fallback">
+        <span class="initials">VS</span>
+        <span class="fallback-note">Add DSC_6947.JPG to show your photo</span>
+      </div>
     </div>
     <div class="hero-stat-card stat-card-1"><div class="stat-num">6+</div><div class="stat-label">SCI Publications</div></div>
     <div class="hero-stat-card stat-card-2"><div class="stat-num">8+</div><div class="stat-label">Years Research</div></div>
@@ -183,6 +224,7 @@
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="about">
   <div class="about-grid fade-in">
     <div>
@@ -196,7 +238,7 @@
     </div>
     <div class="about-details">
       <div class="detail-row"><span class="detail-key">Current Position</span><span class="detail-val">Postdoctoral Fellow, Trinity College Dublin</span></div>
-      <div class="detail-row"><span class="detail-key">PhD</span><span class="detail-val">Environmental Science & Engineering, IIT ISM Dhanbad (2017â€“2024)</span></div>
+      <div class="detail-row"><span class="detail-key">PhD</span><span class="detail-val">Environmental Science &amp; Engineering, IIT ISM Dhanbad (2017â€“2024)</span></div>
       <div class="detail-row"><span class="detail-key">Research Focus</span><span class="detail-val">Climate Change Â· Groundwater Â· Land-Use Modelling Â· GIS/RS</span></div>
       <div class="detail-row"><span class="detail-key">ORCID</span><span class="detail-val"><a href="https://orcid.org/0000-0001-6354-4564" target="_blank">0000-0001-6354-4564</a></span></div>
       <div class="detail-row"><span class="detail-key">GitHub</span><span class="detail-val"><a href="https://github.com/viveksinghenv" target="_blank">github.com/viveksinghenv</a></span></div>
@@ -205,6 +247,7 @@
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SKILLS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="skills">
   <div class="section-label">Expertise</div>
   <h2>Research Skills &amp; Tools</h2>
@@ -260,67 +303,90 @@
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• EXPERIENCE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="experience">
   <div class="section-label">Career</div>
-  <h2>Experience &amp; Education</h2>
+  <h2>Professional Experience</h2>
   <div class="timeline">
+
     <div class="timeline-item fade-in">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Aug 2024 â€” Present</div>
+      <div class="timeline-date">Aug 2024 â€“ Present</div>
       <h3>Postdoctoral Fellow</h3>
       <div class="timeline-org">Trinity College Dublin Â· Supervisor: Dr. Patrick Morrissey</div>
       <p class="timeline-desc">Assessing groundwater recharge vulnerability to climate change in Ireland. Conducting hydrological and geospatial modelling, climate data analysis, and spatial mapping. Developing decision-support frameworks integrating GIS and remote sensing tools for evidence-based water resource management.</p>
     </div>
+
     <div class="timeline-item fade-in">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Jun 2019 â€” Mar 2022</div>
-      <h3>Geospatial Researcher â€” Dhanbad Master Plan 2030</h3>
+      <div class="timeline-date">Jun 2019 â€“ Mar 2022</div>
+      <h3>Geospatial Researcher â€“ Dhanbad Master Plan 2030</h3>
       <div class="timeline-org">IIT (ISM) Dhanbad</div>
       <p class="timeline-desc">Co-developed the Dhanbad Master Plan 2030, identifying optimal locations for sustainable infrastructure including green zones and biodiversity-protected areas. Built a GIS-based Markov Chain and neural network model for urban development forecasting using Python, ArcGIS, QGIS, and Google Earth Engine.</p>
     </div>
+
     <div class="timeline-item fade-in">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Aug 2018 â€” May 2023</div>
+      <div class="timeline-date">Aug 2018 â€“ May 2023</div>
       <h3>Graduate Teaching Assistant</h3>
       <div class="timeline-org">IIT (ISM) Dhanbad</div>
       <p class="timeline-desc">Developed a comprehensive manual for the Geoinformatics Laboratory Course, enabling students to learn GIS tools in a structured, practical environment.</p>
     </div>
+
     <div class="timeline-item fade-in">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Sep 2016 â€” Jul 2017</div>
+      <div class="timeline-date">Sep 2016 â€“ Jul 2017</div>
       <h3>Junior Research Fellow</h3>
-      <div class="timeline-org">DTRL, DRDO â€” New Delhi Â· Supervisor: Dr. Lokesh Kumar Sinha, Scientist G</div>
+      <div class="timeline-org">DTRL, DRDO â€“ New Delhi Â· Supervisor: Dr. Lokesh Kumar Sinha, Scientist G</div>
       <p class="timeline-desc">Created spectral libraries using reflective and emissive spectra for delineating terrain features in the hyperspectral domain. Identified spectral signature differences due to varying soil moisture using MATLAB; built spectral libraries of built-in features from Udaipur and Almora Districts.</p>
     </div>
+
     <div class="timeline-item fade-in">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Sep 2013 â€” May 2014</div>
+      <div class="timeline-date">Sep 2013 â€“ May 2014</div>
       <h3>ETP Incharge</h3>
       <div class="timeline-org">Tirubala Export, Kanpur Dehat, India</div>
       <p class="timeline-desc">Monitoring, operations, and handling of Zero Liquid Discharge plant.</p>
     </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2017 â€” 2024</div>
-      <h3>PhD â€” Environmental Science &amp; Engineering</h3>
-      <div class="timeline-org">IIT (ISM) Dhanbad Â· Supervisor: Prof. Sukha Ranjan Samadder</div>
-      <p class="timeline-desc">Thesis: "A geospatial framework for prediction of future land-use pattern and allocation of different environmental facilities: A case study of Dhanbad, India."</p>
-    </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2014 â€” 2016</div>
-      <h3>M.Tech â€” Environmental Science &amp; Engineering</h3>
-      <div class="timeline-org">IIT (ISM) Dhanbad Â· 77.5%</div>
-    </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2009 â€” 2013</div>
-      <h3>B.Tech â€” Environmental Engineering</h3>
-      <div class="timeline-org">Dr. A.P.J. Abdul Kalam Technical University, Lucknow Â· 65.1%</div>
-    </div>
+
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• EDUCATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="education">
+  <div class="section-label">Academic</div>
+  <h2>Education</h2>
+  <div class="timeline">
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2017 â€“ 2024</div>
+      <div class="edu-badge">Doctor of Philosophy</div>
+      <h3>PhD â€“ Environmental Science &amp; Engineering</h3>
+      <div class="timeline-org">IIT (ISM) Dhanbad Â· Supervisor: Prof. Sukha Ranjan Samadder</div>
+      <p class="timeline-desc">Thesis: "A geospatial framework for prediction of future land-use pattern and allocation of different environmental facilities: A case study of Dhanbad, India."</p>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2014 â€“ 2016</div>
+      <div class="edu-badge">Post Graduate</div>
+      <h3>M.Tech â€“ Environmental Science &amp; Engineering</h3>
+      <div class="timeline-org">IIT (ISM) Dhanbad</div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2009 â€“ 2013</div>
+      <div class="edu-badge">Under Graduate</div>
+      <h3>B.Tech â€“ Environmental Engineering</h3>
+      <div class="timeline-org">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PUBLICATIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="publications">
   <div class="section-label">Research Output</div>
   <h2>Publications</h2>
@@ -328,10 +394,9 @@
     <button class="pub-tab active" onclick="showPubs('journals',this)">Journal Articles (6)</button>
     <button class="pub-tab" onclick="showPubs('conferences',this)">Conference Papers (2)</button>
   </div>
-
   <div id="journals" class="pub-section active">
     <div class="pub-item fade-in">
-      <div class="pub-year">2024 Â· Water Science & Technology Â· IWA Publishing</div>
+      <div class="pub-year">2024 Â· Water Science &amp; Technology Â· IWA Publishing</div>
       <div class="pub-title">A novel approach for identification of environmentally and economically suitable locations for establishment of wastewater treatment plants</div>
       <div class="pub-authors">Vivek Singh &amp; Sukha Ranjan Samadder</div>
       <div class="pub-journal">Water Sci Technol, Vol. 92(2), pp. 413â€“431</div>
@@ -373,7 +438,6 @@
       <div class="pub-doi">DOI: <a href="https://doi.org/10.1002/ldr.2990" target="_blank">10.1002/ldr.2990</a></div>
     </div>
   </div>
-
   <div id="conferences" class="pub-section">
     <div class="pub-item fade-in">
       <div class="pub-year">2020 Â· National Conference Â· IIT ISM Dhanbad</div>
@@ -390,13 +454,14 @@
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TRAININGS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="trainings">
   <div class="section-label">Development</div>
   <h2>Trainings, Workshops &amp; Teaching</h2>
   <div class="training-list">
     <div class="training-item fade-in">
       <div class="training-date">Jul 7â€“8, 2022</div>
-      <div class="training-title"><strong>Technical Expert &amp; Presenter</strong> â€” "Analysis &amp; Application of Opensource Remote Sensing Data using Google Earth Engine" <span>Â· Centre for Water Resource Management, IIT (ISM) Dhanbad (2-day online course)</span></div>
+      <div class="training-title"><strong>Technical Expert &amp; Presenter</strong> â€“ "Analysis &amp; Application of Opensource Remote Sensing Data using Google Earth Engine" <span>Â· Centre for Water Resource Management, IIT (ISM) Dhanbad (2-day online course)</span></div>
     </div>
     <div class="training-item fade-in">
       <div class="training-date">May 30 â€“ Jun 1, 2022</div>
@@ -408,7 +473,7 @@
     </div>
     <div class="training-item fade-in">
       <div class="training-date">Apr 2, 2020</div>
-      <div class="training-title"><strong>ArcSWAT Model with ArcGIS â€” Run for any Study Area</strong> <span>Â· Udemy, instructed by Lakhwinder Singh</span></div>
+      <div class="training-title"><strong>ArcSWAT Model with ArcGIS â€“ Run for any Study Area</strong> <span>Â· Udemy, instructed by Lakhwinder Singh</span></div>
     </div>
     <div class="training-item fade-in">
       <div class="training-date">Dec 20â€“24, 2016</div>
@@ -425,6 +490,7 @@
   </div>
 </section>
 
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CONTACT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="contact">
   <div class="section-label" style="justify-content:center;">Contact</div>
   <h2>Let's Collaborate</h2>
@@ -443,12 +509,19 @@
 </footer>
 
 <script>
+  // Sticky nav
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+
+  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => { if(entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80); });
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Publications tab switcher
   function showPubs(id, btn) {
     document.querySelectorAll('.pub-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.pub-tab').forEach(b => b.classList.remove('active'));
