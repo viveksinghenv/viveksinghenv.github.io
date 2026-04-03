@@ -48,11 +48,11 @@
   @keyframes gridMove { 0%{transform:translate(0,0);} 100%{transform:translate(60px,60px);} }
   .hero-photo-wrap { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
 
-  /* Photo styles */
-  .hero-photo { width:220px; height:220px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid var(--accent3); box-shadow:0 0 50px rgba(76,175,110,0.25), 0 0 0 8px rgba(76,175,110,0.06); display:block; }
+  /* Photo styles — portrait card, face fills the frame */
+  .hero-photo { width:260px; height:340px; border-radius:10px; object-fit:cover; object-position:center top; border:3px solid var(--accent3); box-shadow:0 0 50px rgba(76,175,110,0.25), 0 0 0 8px rgba(76,175,110,0.06); display:block; }
 
   /* Fallback avatar shown when image fails to load */
-  .hero-photo-fallback { width:220px; height:220px; border-radius:50%; border:3px solid var(--accent3); background:var(--surface); display:none; align-items:center; justify-content:center; flex-direction:column; box-shadow:0 0 50px rgba(76,175,110,0.25); }
+  .hero-photo-fallback { width:260px; height:340px; border-radius:10px; border:3px solid var(--accent3); background:var(--surface); display:none; align-items:center; justify-content:center; flex-direction:column; box-shadow:0 0 50px rgba(76,175,110,0.25); }
   .hero-photo-fallback .initials { font-family:var(--serif); font-size:4rem; color:var(--accent); line-height:1; }
   .hero-photo-fallback .fallback-note { font-family:var(--mono); font-size:0.6rem; color:var(--text-faint); text-align:center; margin-top:0.75rem; padding:0 1.5rem; line-height:1.5; }
 
@@ -281,7 +281,7 @@
       <h3>Programming &amp; Data</h3>
       <div class="skill-tags">
         <span class="tag">Python ★★★</span><span class="tag">R ★★★★</span><span class="tag">MATLAB</span>
-        <span class="tag">Neural Networks</span><span class="tag">AAS Analysis ★★</span>
+        <span class="tag">Neural Networks</span>
       </div>
     </div>
     <div class="skill-card fade-in">
@@ -289,14 +289,14 @@
       <h3>Climate &amp; Environment</h3>
       <div class="skill-tags">
         <span class="tag">Climate Impact Assessment</span><span class="tag">EIA</span><span class="tag">SDG Indicators</span>
-        <span class="tag">Biodiversity Planning</span><span class="tag">Green Transition</span>
+        <span class="tag">Biodiversity Planning</span>
       </div>
     </div>
     <div class="skill-card fade-in">
       <div class="skill-icon">📊</div>
       <h3>Policy &amp; Planning</h3>
       <div class="skill-tags">
-        <span class="tag">Evidence-based Policy</span><span class="tag">Master Plan Dev</span>
+        <span class="tag">Evidence-based Policy</span><span class="tag">Master Plan Development</span>
         <span class="tag">Urban Planning</span><span class="tag">Decision Support</span><span class="tag">Geospatial Dashboards</span>
       </div>
     </div>
